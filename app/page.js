@@ -6,7 +6,7 @@ import ImageSlideshow from '@/components/images/image-slideshow';
 export default function Home() {
   return (
     <>
-      <header className={classes.header}>
+      {/* <header className={classes.header}>
         <div className={classes.slideshow}>
           <ImageSlideshow/>
         </div>
@@ -20,7 +20,7 @@ export default function Home() {
             <Link href="/meals">Explore Meals</Link>
           </div>
         </div>
-      </header>
+      </header> */}
       <main>
         <section className={classes.section}>
           <h2>How it works</h2>

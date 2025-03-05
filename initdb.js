@@ -177,23 +177,39 @@ db.prepare(`
     )
 `).run();
 
-async function initData() {
-  const stmt = db.prepare(`
-      INSERT INTO meals VALUES (
-         null,
-         @slug,
-         @title,
-         @image,
-         @summary,
-         @instructions,
-         @creator,
-         @creator_email
-      )
-   `);
+// async function initData() {
+//   const stmt = db.prepare(`
+//       INSERT INTO meals VALUES (
+//          null,
+//          @slug,
+//          @title,
+//          @image,
+//          @summary,
+//          @instructions,
+//          @creator,
+//          @creator_email
+//       )
+//    `);
 
-  for (const meal of dummyMeals) {
-    stmt.run(meal);
-  }
-}
+//   for (const meal of dummyMeals) {
+//     stmt.run(meal);
+//   }
+// }
 
-initData();
+// initData();
+const stmt = db.prepare(`
+   INSERT OR IGNORE INTO meals (
+     slug, title, image, summary, instructions, creator, creator_email
+   ) VALUES (
+     @slug, @title, @image, @summary, @instructions, @creator, @creator_email
+   )
+ `);
+ 
+ async function initData() {
+   for (const meal of dummyMeals) {
+     stmt.run(meal);
+   }
+ }
+ 
+ initData();
+ 
