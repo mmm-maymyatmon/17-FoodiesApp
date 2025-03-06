@@ -13,7 +13,7 @@ export default function MealDetailsPage({params}) {
     return <>
     <header className={classes.header} >
         <div className={classes.image}>
-            <Image src={meal.image} alt={meal.title} fill />
+            <Image src={`https://mmm-nextjs-demo-users-image.s3.ap-southeast-2.amazonaws.com/${meal.image}`} alt={meal.title} fill />
         </div>
         <div className={classes.headerText}>
             <h1>{meal.title}</h1>
